@@ -6,18 +6,19 @@ const connectDB = require("./config/db");
 const app = express();
 connectDB();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://steadfast-energy-production-2f50.up.railway.app/", 
+    credentials: true,
+  }),
+);
+
 app.use(express.json());
 
-// Routes (We will create these next)
+// Routes
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/projects", require("./routes/projects"));
 app.use("/api/tasks", require("./routes/tasks"));
-app.use(
-  cors({
-    origin: "https://generous-hope-production.up.railway.app/",
-  }),
-);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
