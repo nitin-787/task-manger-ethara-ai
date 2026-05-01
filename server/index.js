@@ -8,7 +8,7 @@ connectDB();
 
 app.use(
   cors({
-    origin: "https://steadfast-energy-production-2f50.up.railway.app/", 
+    origin: "https://task-manger-ethara-ai.vercel.app/",
     credentials: true,
   }),
 );
