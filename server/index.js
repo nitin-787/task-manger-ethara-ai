@@ -13,6 +13,11 @@ app.use(express.json());
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/projects", require("./routes/projects"));
 app.use("/api/tasks", require("./routes/tasks"));
+app.use(
+  cors({
+    origin: "https://generous-hope-production.up.railway.app/",
+  }),
+);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
