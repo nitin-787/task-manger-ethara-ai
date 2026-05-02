@@ -6,7 +6,7 @@ const connectDB = require("./config/db");
 
 const app = express();
 
-// Connect Database
+// Connect DB
 connectDB();
 
 // Middleware
@@ -32,7 +32,6 @@ app.use("/api/auth", require("./routes/auth"));
 app.use("/api/projects", require("./routes/projects"));
 app.use("/api/tasks", require("./routes/tasks"));
 
-// Start Server
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
