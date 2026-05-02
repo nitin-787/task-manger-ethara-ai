@@ -1,10 +1,12 @@
 require("dotenv").config();
+
 const express = require("express");
 const cors = require("cors");
 const connectDB = require("./config/db");
 
 const app = express();
 
+// Connect Database
 connectDB();
 
 // Middleware
@@ -14,7 +16,6 @@ app.use(
       "http://localhost:5173",
       "https://task-manger-ethara-ai.vercel.app",
     ],
-    methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   }),
 );
@@ -31,8 +32,9 @@ app.use("/api/auth", require("./routes/auth"));
 app.use("/api/projects", require("./routes/projects"));
 app.use("/api/tasks", require("./routes/tasks"));
 
+// Start Server
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, "0.0.0.0", () => {
+app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
